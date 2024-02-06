@@ -139,6 +139,26 @@ function convertToRomanNumerals(/* num */) {
  */
 function convertNumberToString(/* numberStr */) {
   throw new Error('Not implemented');
+  // const nums = {
+  //   "0": "zero",
+  //   "1": "one",
+  //   "2": "two",
+  //   "3": "three",
+  //   "4": "four",
+  //   "5": "five",
+  //   "6": "six",
+  //   "7": "seven",
+  //   "8": "eight",
+  //   "9": "nine",
+  //   ".": "point",
+  //   ",": "point",
+  //   "-": "minus",
+  // }
+  // console.log(Object.keys(nums))
+  // const newStr = [];
+  // for (let i = 0; i < numberStr.length; i += 1) {
+  //   console.log(Object.keys(nums))
+  // }
 }
 
 /**
@@ -153,8 +173,14 @@ function convertNumberToString(/* numberStr */) {
  *  '0123210'   => true
  *  'qweqwe'    => false
  */
-function isPalindrome(/* str */) {
-  throw new Error('Not implemented');
+function isPalindrome(str) {
+  let reverseWord = '';
+  let i = str.length;
+  while (i !== 0) {
+    reverseWord += str[i - 1];
+    i -= 1;
+  }
+  return reverseWord === str;
 }
 
 /**
@@ -171,8 +197,11 @@ function isPalindrome(/* str */) {
  *  'qwerty', 'Q'     => -1
  *  'qwerty', 'p'     => -1
  */
-function getIndexOf(/* str, letter */) {
-  throw new Error('Not implemented');
+function getIndexOf(str, letter) {
+  for (let i = 0; i < str.length; i += 1) {
+    if (str[i] === letter) return i;
+  }
+  return -1;
 }
 
 /**
@@ -190,8 +219,16 @@ function getIndexOf(/* str, letter */) {
  *  12345, 0    => false
  *  12345, 6    => false
  */
-function isContainNumber(/* num, digit */) {
-  throw new Error('Not implemented');
+function isContainNumber(num, digit) {
+  let i = num;
+  while (i !== 0) {
+    const lastDigit = i % 10;
+    if (lastDigit === digit) {
+      return true;
+    }
+    i = Math.floor(i / 10);
+  }
+  return false;
 }
 
 /**
